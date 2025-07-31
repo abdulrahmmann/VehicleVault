@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// REGISTER LAYERS DEPENDENCIES
 builder.Services
     .AddInfrastructureDependencies()
     .AddApplicationDependencies();
