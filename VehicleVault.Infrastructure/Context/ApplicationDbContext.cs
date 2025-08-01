@@ -1,12 +1,38 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using VehicleVault.Domain.Entities;
 using VehicleVault.Domain.IdentityEntities;
+using DriveType = VehicleVault.Domain.Entities.DriveType;
 
 namespace VehicleVault.Infrastructure.Context;
 
 public class ApplicationDbContext: IdentityDbContext<ApplicationUser, ApplicationRole, int>
 {
+    public virtual DbSet<Vehicle> Vehicles { get; set; }
+
+    public virtual DbSet<Body> Bodies { get; set; }
+
+    public virtual DbSet<Category> Categories { get; set; }
+
+    public virtual DbSet<Color> Colors { get; set; }
+
+    public virtual DbSet<DriveType> DriveTypes { get; set; }
     
+    public virtual DbSet<FuelType> FuelTypes { get; set; }
+    
+    public virtual DbSet<Make> Makes { get; set; }
+    
+    public virtual DbSet<Model> Models { get; set; }
+    
+    public virtual DbSet<SubModel> SubModels { get; set; }
+    
+    public virtual DbSet<TransmissionType> TransmissionTypes { get; set; }
+    
+    public virtual DbSet<VehicleImage> VehicleImages { get; set; }
+    
+    public virtual DbSet<Feature> Features { get; set; }
+    
+    public virtual DbSet<VehicleFeature> VehicleFeatures { get; set; }
     
     protected ApplicationDbContext() { }
     
