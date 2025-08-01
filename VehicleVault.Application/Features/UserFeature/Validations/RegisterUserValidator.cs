@@ -3,9 +3,9 @@ using VehicleVault.Application.Features.UserFeature.DTOs;
 
 namespace VehicleVault.Application.Features.UserFeature.Validations;
 
-public class LoginUserValidator: AbstractValidator<UserRegisterDto>
+public class RegisterUserValidator: AbstractValidator<UserRegisterDto>
 {
-    public LoginUserValidator()
+    public RegisterUserValidator()
     {
         RuleFor(user => user.Email)
             .EmailAddress().WithMessage("Invalid email format")
