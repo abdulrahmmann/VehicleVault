@@ -1,4 +1,5 @@
 ﻿using VehicleVault.Domain.Common;
+using VehicleVault.Domain.IdentityEntities;
 
 namespace VehicleVault.Domain.Entities;
 
@@ -64,6 +65,10 @@ public class Vehicle: BaseEntity
     public int TransmissionTypeId { get; init; }
     public TransmissionType  TransmissionType { get; init; } =  null!;
     
+    
+    // Vehicle & User -> ONE_TO_MANY 
+    public int UserId { get; init; }
+    public ApplicationUser User { get; init; } = null!;
     
     public ICollection<VehicleFeature> VehicleFeatures { get; init; } = new List<VehicleFeature>();
     public ICollection<VehicleImage> VehicleImages { get; init; } = new List<VehicleImage>();

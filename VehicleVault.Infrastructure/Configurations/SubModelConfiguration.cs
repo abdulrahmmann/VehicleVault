@@ -25,11 +25,12 @@ public class SubModelConfiguration : BaseEntityConfiguration<SubModel>
         
         // Relations
         
-        // Model & Make --> One_To_Many
+        // Model & SubModels --> One_To_Many
         builder
             .HasOne(sm => sm.Model)
             .WithMany(mm => mm.SubModelsCollection)
             .HasForeignKey(sm => sm.ModelId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_SubModel_Model");
     }
 }

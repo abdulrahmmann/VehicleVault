@@ -45,7 +45,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Body)
             .WithMany(b => b.VehiclesCollection)
             .HasForeignKey(v => v.BodyId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Body");
         
         
         // Vehicle & DriveType --> One_To_Many
@@ -53,7 +54,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.DriveType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.DriveTypeId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_DriveType");
         
         
         // Vehicle & Make --> One_To_Many
@@ -61,7 +63,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Make)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.MakeId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Make");
         
         
         // Vehicle & FuelType --> One_To_Many
@@ -69,7 +72,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.FuelType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.FuelTypeId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_FuelType");
         
         
         // Vehicle & Model --> One_To_Many
@@ -77,7 +81,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Model)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.ModelId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Model");
         
         
         // Vehicle & SubModel --> One_To_Many
@@ -85,7 +90,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.SubModel)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.SubModelId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_SubModel");
         
         
         // Vehicle & Color --> One_To_Many
@@ -93,7 +99,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Color)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.ColorId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Color");
         
         
         // Vehicle & Category --> One_To_Many
@@ -101,7 +108,8 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Category)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.CategoryId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Category");
         
         
         // Vehicle & TransmissionType --> One_To_Many
@@ -109,6 +117,15 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.TransmissionType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.SubModelId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_Transmission");
+        
+        
+        // Vehicle & User --> One_To_Many
+        builder
+            .HasOne(v => v.User)
+            .WithMany(u => u.VehiclesCollection)
+            .HasForeignKey(v => v.UserId)
+            .HasConstraintName("FK_Vehicle_User");
     }
 }

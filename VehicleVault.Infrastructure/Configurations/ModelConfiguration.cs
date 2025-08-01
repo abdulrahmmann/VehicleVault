@@ -30,6 +30,7 @@ public class ModelConfiguration : BaseEntityConfiguration<Model>
             .HasOne(mm => mm.Make)
             .WithMany(m => m.ModelsCollection)
             .HasForeignKey(mm => mm.MakeId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Model_Make");
     }
 }

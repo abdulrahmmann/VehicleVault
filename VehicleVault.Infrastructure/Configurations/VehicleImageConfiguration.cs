@@ -24,6 +24,7 @@ public class VehicleImageConfiguration: BaseEntityConfiguration<VehicleImage>
             .HasOne(vi => vi.Vehicle)
             .WithMany(v => v.VehicleImages)
             .HasForeignKey(vi => vi.VehicleId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_Vehicle_VehicleImages");
     }
 }
