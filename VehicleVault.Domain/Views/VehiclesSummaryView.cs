@@ -1,6 +1,4 @@
-﻿using VehicleVault.Domain.Entities;
-
-namespace VehicleVault.Domain.Views;
+﻿namespace VehicleVault.Domain.Views;
 
 public class VehiclesSummaryView
 {

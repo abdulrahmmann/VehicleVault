@@ -18,4 +18,14 @@
       <ProjectReference Include="..\VehicleVault.Infrastructure\VehicleVault.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\UserFeature\Commands\Handler\" />
+      <Folder Include="Features\UserFeature\Commands\Requests\" />
+      <Folder Include="Features\UserFeature\Mapper\" />
+      <Folder Include="Features\UserFeature\Queries\Handler\" />
+      <Folder Include="Features\UserFeature\Queries\Requests\" />
+      <Folder Include="Features\UserFeature\Validations\" />
+      <Folder Include="Helper\" />
+    </ItemGroup>
+
 </Project>

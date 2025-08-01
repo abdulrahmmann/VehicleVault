@@ -1,4 +1,5 @@
 using System.Text;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
@@ -44,6 +45,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddApiVersioning(config =>
+{
+    config.ApiVersionReader = new UrlSegmentApiVersionReader();
+});
+
 
 var app = builder.Build();
 
@@ -57,6 +63,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthentication();
 
