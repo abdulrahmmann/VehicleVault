@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using VehicleVault.Domain.Entities;
 using VehicleVault.Domain.IdentityEntities;
+using VehicleVault.Domain.Views;
 using DriveType = VehicleVault.Domain.Entities.DriveType;
 
 namespace VehicleVault.Infrastructure.Context;
@@ -43,5 +44,12 @@ public class ApplicationDbContext: IdentityDbContext<ApplicationUser, Applicatio
         base.OnModelCreating(builder);
 
         builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+        builder.Entity<VehiclesSummaryView>(entity =>
+        {
+            entity.HasNoKey();
+            
+            entity.ToView("VehiclesSummaryView");
+        });
     }
 }
