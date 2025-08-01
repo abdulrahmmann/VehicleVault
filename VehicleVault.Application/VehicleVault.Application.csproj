@@ -24,7 +24,6 @@
       <Folder Include="Features\UserFeature\Mapper\" />
       <Folder Include="Features\UserFeature\Queries\Handler\" />
       <Folder Include="Features\UserFeature\Queries\Requests\" />
-      <Folder Include="Features\UserFeature\Validations\" />
       <Folder Include="Helper\" />
     </ItemGroup>
 
