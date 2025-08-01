@@ -24,15 +24,13 @@ public class VehicleFeatureConfiguration: IEntityTypeConfiguration<VehicleFeatur
             .HasOne(vf => vf.Vehicle)
             .WithMany(v => v.VehicleFeatures)
             .HasForeignKey(vf => vf.VehicleId)
-            .HasConstraintName("FK_Vehicle_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder
             .HasOne(vf => vf.Feature)
             .WithMany(f => f.VehicleFeatures)
             .HasForeignKey(vf => vf.FeatureId)
-            .HasConstraintName("FK_Feature_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
     }
 }

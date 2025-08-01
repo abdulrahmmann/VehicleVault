@@ -45,8 +45,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Body)
             .WithMany(b => b.VehiclesCollection)
             .HasForeignKey(v => v.BodyId)
-            .HasConstraintName("FK_Body_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & DriveType --> One_To_Many
@@ -54,8 +53,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.DriveType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.DriveTypeId)
-            .HasConstraintName("FK_DriveType_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & Make --> One_To_Many
@@ -63,8 +61,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Make)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.MakeId)
-            .HasConstraintName("FK_Make_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & FuelType --> One_To_Many
@@ -72,8 +69,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.FuelType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.FuelTypeId)
-            .HasConstraintName("FK_FuelType_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & Model --> One_To_Many
@@ -81,8 +77,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Model)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.ModelId)
-            .HasConstraintName("FK_Model_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & SubModel --> One_To_Many
@@ -90,8 +85,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.SubModel)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.SubModelId)
-            .HasConstraintName("FK_SubModel_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & Color --> One_To_Many
@@ -99,8 +93,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Color)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.ColorId)
-            .HasConstraintName("FK_Color_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & Category --> One_To_Many
@@ -108,8 +101,7 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.Category)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.CategoryId)
-            .HasConstraintName("FK_Category_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
         
         
         // Vehicle & TransmissionType --> One_To_Many
@@ -117,7 +109,6 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .HasOne(v => v.TransmissionType)
             .WithMany(d => d.VehiclesCollection)
             .HasForeignKey(v => v.SubModelId)
-            .HasConstraintName("FK_SubModel_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

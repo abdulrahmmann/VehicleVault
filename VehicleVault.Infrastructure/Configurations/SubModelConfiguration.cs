@@ -30,7 +30,6 @@ public class SubModelConfiguration : BaseEntityConfiguration<SubModel>
             .HasOne(sm => sm.Model)
             .WithMany(mm => mm.SubModelsCollection)
             .HasForeignKey(sm => sm.ModelId)
-            .HasConstraintName("FK_Model_Id")
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
